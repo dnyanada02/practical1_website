@@ -17,15 +17,62 @@
 					<li><a href="about.html">About</a></li>
 				</ul>
 			</div>
-			<div class="title">
-				<h1>WANT TO LEARN <BR>WEB DEVELOPMENT</h1>
-				<h2>HTML ,CSS, JS</h2>
-			</div>	
 
-			<div class="button">
+					<section class="home">
+				<div class="container">
+				   <div class="row">
+					   <div class="home-text">
+							<h1>WANT TO LEARN WEB DEVELOPMENT ?</h1>
+							<p class="animate-text">
+							   <span>HTML (HyperText Markup Language)</span>
+							   <span>CSS (Cascading Style Sheets)</span>
+							   <span>JS (Javascript)</span>
+							   <span>Angular</span>
+							</p>
+					   </div>
+				   </div>
+				</div>
+			</section>
+
+			<div class="button1">
 				<a href="intro.html" class="btn">START NOW</a>
 			</div>
 		</header>
+
+
+		<!-------- javascript ------>
+		<script>
+			const txts=document.querySelector(".animate-text").children,
+				  txtsLen=txts.length;
+			  let index=0;
+			 const textInTimer=3000,
+				   textOutTimer=2800;
+   
+			function animateText() {
+			   for(let i=0; i<txtsLen; i++){
+				 txts[i].classList.remove("text-in","text-out");  
+			   }
+			   txts[index].classList.add("text-in");
+   
+			   setTimeout(function(){
+				   txts[index].classList.add("text-out");              
+			   },textOutTimer)
+   
+			   setTimeout(function(){
+   
+				 if(index == txtsLen-1){
+					 index=0;
+				   }
+				  else{
+					  index++;
+					}
+				   animateText();
+			   },textInTimer); 
+			}
+			
+			window.onload=animateText;
+	  
+   </script>
 
 		<footer class="footer">
 			<h5>All rights reserved @2021 </h5>
